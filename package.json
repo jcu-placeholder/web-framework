@@ -17,7 +17,7 @@
     "serve": "live-server --quiet --port=3000 --open=docs/$npm_package_version_short/ site/",
     "clean": "cross-env-shell shx rm -rf dist/",
     "css": "npm-run-all css-deps css-compile css-prefix css-minify css-copy",
-    "css-deps": "cross-env-shell shx mkdir -p dist/fonts/open-sans dist/fonts/playfair-display dist/fonts/mdi && cross-env-shell shx cp node_modules/typeface-open-sans/files/* dist/fonts/open-sans/ && cross-env-shell shx cp node_modules/typeface-playfair-display/files/* dist/fonts/playfair-display/ && cross-env-shell shx cp node_modules/@mdi/font/fonts/* dist/fonts/mdi/",
+    "css-deps": "cross-env-shell shx mkdir -p dist/fonts/open-sans dist/fonts/playfair-display dist/fonts/mdi && cross-env-shell shx cp node_modules/fontsource-open-sans/files/open-sans-latin-[0-9]* dist/fonts/open-sans/ && cross-env-shell shx cp node_modules/fontsource-playfair-display/files/playfair-display-latin-[0-9]* dist/fonts/playfair-display/ && cross-env-shell shx cp node_modules/@mdi/font/fonts/* dist/fonts/mdi/",
     "css-copy": "cross-env-shell shx mkdir -p site/docs/$npm_package_version_short/dist/ && cross-env-shell shx cp -r dist/css/ dist/fonts/ site/docs/$npm_package_version_short/dist/",
     "css-main": "npm-run-all css-lint css-compile-main css-prefix-main css-minify-main css-copy",
     "css-docs": "npm-run-all css-compile-docs css-prefix-docs css-minify-docs",
@@ -57,7 +57,6 @@
     "watch-img": "nodemon --watch src/img/ --ext svg --exec \"npm run img\"",
     "watch-js": "nodemon --watch node_modules/jquery/dist --watch node_modules/popper.js/dist/umd --watch node_modules/bootstrap/dist/js --ext js --exec \"npm run js\""
   },
-  "dependencies": {},
   "devDependencies": {
     "@khanacademy/tota11y": "^0.2.0",
     "@mdi/font": "^5.6.55",
@@ -65,6 +64,8 @@
     "clean-css-cli": "^4.3.0",
     "cross-env": "^7.0.2",
     "find-unused-sass-variables": "^2.0.0",
+    "fontsource-open-sans": "^3.0.9",
+    "fontsource-playfair-display": "^3.0.3",
     "imagemin-cli": "^6.0.0",
     "jquery": "^3.5.1",
     "live-server": "^1.2.1",
@@ -75,9 +76,7 @@
     "postcss-cli": "^8.1.0",
     "shx": "^0.3.2",
     "stylelint": "^13.7.2",
-    "stylelint-config-twbs-bootstrap": "^2.1.0",
-    "typeface-open-sans": "^1.1.13",
-    "typeface-playfair-display": "^1.1.13"
+    "stylelint-config-twbs-bootstrap": "^2.1.0"
   },
   "files": [
     "dist/**",
